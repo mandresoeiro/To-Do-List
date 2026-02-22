@@ -1,0 +1,52 @@
+{
+    // 🎨 TEMA VISUAL (TOKYO NIGHT)
+    "workbench.colorTheme": "Tokyo Night", // Ativa a estética Neon de Tóquio 🌃
+    "editor.semanticHighlighting.enabled": true, // Cores inteligentes baseadas na lógica do código 🧠
+    "workbench.iconTheme": "vscode-icons", // Ícones coloridos para pastas e arquivos 📂
+    // 🛠️ FORMATAÇÃO E INDENTAÇÃO AUTOMÁTICA (BOAS PRÁTICAS)
+    "editor.formatOnSave": true, // FORMATAR AO SALVAR: A mágica acontece aqui! 💾✨
+    "editor.tabSize": 4, // Define o recuo padrão de 4 espaços (Padrão Django/Python) 📑
+    "editor.insertSpaces": true, // Transforma a tecla Tab em espaços Reais (evita erro de indentação) 📏
+    "editor.detectIndentation": false, // Força o VS Code a usar as MINHAS regras, não as dele 🚫
+    "editor.trimAutoWhitespace": true, // Remove espaços vazios que você esquece nas linhas 🧹
+    "files.trimTrailingWhitespace": true, // Corta espaços inúteis no final de cada frase ✂️
+    "files.insertFinalNewline": true, // Adiciona uma linha vazia no fim do arquivo (Essencial para Git) 🏁
+    // 📏 QUEBRA DE LINHA E GUIAS VISUAIS
+    "editor.wordWrap": "on", // Quebra o texto automaticamente para não fugir da tela 🔄
+    "editor.wordWrapColumn": 120, // Limite de 120 caracteres para leitura confortável 📖
+    "editor.rulers": [
+        80,
+        120
+    ], // Linhas verticais para você saber quando o código está longo demais 📏
+    // ⌨️ FLUIDEZ E ESCRITA
+    "editor.cursorBlinking": "smooth", // Piscar de cursor elegante ✨
+    "editor.cursorSmoothCaretAnimation": "on", // Animação de escrita fluida ⌨️
+    "editor.bracketPairColorization.enabled": true, // Colore os pares de parênteses/chaves iguais (Facilita a vida!) 🌈
+    "editor.guides.bracketPairs": "active", // Desenha linhas ligando o início e o fim de um bloco de código 🔗
+    // 🐍 CONFIGURAÇÕES ESPECÍFICAS (DJANGO, HTML, JS)
+    "emmet.includeLanguages": {
+        "django-html": "html" // Atalhos HTML funcionam em arquivos .html do Django 🏗️
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features" // Formatador padrão de HTML 🌐
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features" // Formatador padrão de JS ⚡
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter" // Usa o 'Black' para o Python (O melhor!) 🐍
+    },
+    // 🎨 CUSTOMIZAÇÃO DE CORES DO TEMA
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#24283b", // Destaque suave na linha onde você está digitando 📍
+        "sideBar.background": "#1a1b26", // Barra lateral escura 🏙️
+        "terminal.background": "#1a1b26" // Terminal no estilo Tokyo 💻
+    },
+    // 📂 LIMPEZA DA BARRA LATERAL (ESCONDER O QUE NÃO IMPORTA)
+    "files.exclude": {
+        "**/.git": true, // Esconde a pasta do Git 📁
+        "**/__pycache__": true, // Esconde pastas temporárias do Python 🐍
+        "**/.DS_Store": true, // Esconde lixo do sistema 🍎
+        "**/*.pyc": true // Esconde arquivos compilados do Python 🐍
+    }
+}
