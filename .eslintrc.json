@@ -1,0 +1,69 @@
+{
+  "extends": ["standard"],
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": false
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "globals": {
+    "Utils": "readonly",
+    "TodoItem": "readonly",
+    "TodoManager": "readonly",
+    "StorageService": "readonly",
+    "UIController": "readonly",
+    "TodoApp": "readonly"
+  },
+  "rules": {
+    "no-console": "warn",
+    "no-unused-vars": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-arrow-callback": "warn",
+    "arrow-spacing": "error",
+    "prefer-template": "warn",
+    "template-curly-spacing": ["error", "never"],
+    "quote-props": ["error", "as-needed"],
+    "dot-notation": "error",
+    "no-useless-concat": "error",
+    "prefer-destructuring": ["warn", {
+      "array": false,
+      "object": true
+    }],
+    "class-methods-use-this": "warn",
+    "consistent-return": "error",
+    "default-case": "warn",
+    "no-else-return": "warn",
+    "no-empty-function": "warn",
+    "no-magic-numbers": ["warn", {
+      "ignore": [0, 1, -1, 2],
+      "ignoreArrayIndexes": true,
+      "enforceConst": true,
+      "detectObjects": false
+    }],
+    "no-return-assign": "error",
+    "no-throw-literal": "error",
+    "prefer-promise-reject-errors": "error",
+    "radix": "error",
+    "yoda": "error",
+    "no-undef-init": "error",
+    "no-undefined": "error",
+    "array-callback-return": "error",
+    "complexity": ["warn", 10],
+    "max-depth": ["warn", 4],
+    "max-len": ["warn", {
+      "code": 100,
+      "tabWidth": 2,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }],
+    "max-lines": ["warn", 500],
+    "max-params": ["warn", 4],
+    "no-nested-ternary": "warn"
+  }
+}
