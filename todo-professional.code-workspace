@@ -1,0 +1,58 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "eslint.enable": true,
+    "eslint.validate": ["javascript"],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "files.associations": {
+      "*.css": "css",
+      "*.js": "javascript",
+      "*.html": "html"
+    },
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "css.validate": true,
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "javascript.validate.enable": true,
+    "files.exclude": {
+      "node_modules": true,
+      ".git": true,
+      "dist": true,
+      "*.log": true
+    },
+    "search.exclude": {
+      "node_modules": true,
+      "dist": true,
+      "*.min.js": true,
+      "*.min.css": true
+    },
+    "editor.rulers": [80, 100],
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "extensions": {
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "bradlc.vscode-tailwindcss",
+      "formulahendry.auto-rename-tag",
+      "christian-kohler.path-intellisense",
+      "ms-vscode.vscode-json",
+      "ritwickdey.liveserver"
+    ]
+  }
+}
