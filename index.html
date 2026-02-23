@@ -1,46 +1,182 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
+    <!-- Meta tags essenciais -->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List | Organização Diária 📝</title>
-
+    
+    <!-- SEO e PWA -->
+    <meta name="description" content="Aplicativo de tarefas moderno e responsivo para organizar sua produtividade">
+    <meta name="keywords" content="todo, tarefas, produtividade, organização">
+    <meta name="author" content="Márcio Soeiro">
+    <meta name="theme-color" content="#269fe6">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Todo Professional - Gerenciador de Tarefas">
+    <meta property="og:description" content="Aplicativo moderno para gerenciar suas tarefas do dia a dia">
+    <meta property="og:image" content="./img/preview.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Todo Professional - Gerenciador de Tarefas">
+    <meta name="twitter:description" content="Aplicativo moderno para gerenciar suas tarefas do dia a dia">
+    
+    <title>Todo Professional - Gerenciador de Tarefas</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <script src="js/script.js" defer></script>
-    <!-- Com o defer: O navegador desenha o site todo, cria o botão e, só no final, o JavaScript entra em ação e pinta o botão de azul. Tudo flui perfeitamente! ✅ -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <!-- Container Principal -->
+    <main class="app-container" role="main">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="app-title">
+                <i class="fas fa-tasks" aria-hidden="true"></i>
+                Todo Professional
+            </h1>
+            <p class="app-subtitle">Organize suas tarefas com eficiência</p>
+        </header>
 
-    <!-- // ---- HEADER --- -->
+        <!-- Formulário de Nova Tarefa -->
+        <section class="todo-form-section" aria-labelledby="form-heading">
+            <h2 id="form-heading" class="visually-hidden">Adicionar Nova Tarefa</h2>
+            <form id="todo-form" class="todo-form" novalidate>
+                <div class="form-group">
+                    <label for="todo-input" class="form-label">Nova Tarefa</label>
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="todo-input" 
+                            class="form-input" 
+                            placeholder="O que você precisa fazer hoje?" 
+                            required
+                            aria-describedby="input-help"
+                            maxlength="100">
+                        <button type="submit" class="btn btn-primary" aria-label="Adicionar tarefa">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <small id="input-help" class="form-help">Digite sua tarefa e pressione Enter ou clique no botão +</small>
+                </div>
+            </form>
+        </section>
 
-    <div class="todo-container"></div>
-    <header>
-        <h1>To-Do List</h1>
-    </header>
-    <form id="todo-form"></form>
-    <p>Adicione uma nova tarefa:</p>
-    <div class="form-control">
-        <input type="text" id="todo-input" placeholder="Digite sua tarefa...">
-        <button type="submit">Adicionar
-            <i class="fa-thin fa-plus"></i>
-        </button>
-        <form action="" id="edit-form"></form>
+        <!-- Formulário de Edição -->
+        <section id="edit-form" class="todo-form-section edit-section hidden" aria-labelledby="edit-heading">
+            <h2 id="edit-heading" class="visually-hidden">Editar Tarefa</h2>
+            <form class="todo-form" novalidate>
+                <div class="form-group">
+                    <label for="edit-input" class="form-label">Editar Tarefa</label>
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="edit-input" 
+                            class="form-input" 
+                            required
+                            maxlength="100">
+                        <button type="submit" class="btn btn-success" aria-label="Salvar alterações">
+                            <i class="fas fa-check-double" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="button" id="cancel-edit-btn" class="btn btn-secondary">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                    Cancelar
+                </button>
+            </form>
+        </section>
+
+        <!-- Toolbar de Filtros e Busca -->
+        <section class="toolbar" aria-label="Ferramentas de busca e filtro">
+            <div class="toolbar-section">
+                <div class="search-group">
+                    <label for="search-input" class="form-label">Pesquisar</label>
+                    <div class="input-group">
+                        <input 
+                            type="search" 
+                            id="search-input" 
+                            class="form-input search-input" 
+                            placeholder="Buscar tarefas..."
+                            aria-describedby="search-help">
+                        <button type="button" id="clear-search-btn" class="btn btn-ghost" aria-label="Limpar busca">
+                            <i class="fas fa-times" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <small id="search-help" class="form-help">Digite para filtrar suas tarefas</small>
+                </div>
+            </div>
+            
+            <div class="toolbar-section">
+                <div class="filter-group">
+                    <label for="filter-select" class="form-label">Filtrar</label>
+                    <select id="filter-select" class="form-select" aria-describedby="filter-help">
+                        <option value="all">Todas</option>
+                        <option value="pending">Pendentes</option>
+                        <option value="completed">Concluídas</option>
+                    </select>
+                    <small id="filter-help" class="form-help">Filtre por status</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lista de Tarefas -->
+        <section class="todo-list-section" aria-labelledby="list-heading">
+            <h2 id="list-heading" class="visually-hidden">Lista de Tarefas</h2>
+            
+            <!-- Estatísticas -->
+            <div class="todo-stats" id="todo-stats" aria-live="polite">
+                <span class="stat-item">
+                    <strong id="total-count">0</strong> total
+                </span>
+                <span class="stat-item">
+                    <strong id="pending-count">0</strong> pendentes
+                </span>
+                <span class="stat-item">
+                    <strong id="completed-count">0</strong> concluídas
+                </span>
+            </div>
+
+            <!-- Container da Lista -->
+            <div id="todo-list" class="todo-list" role="list" aria-live="polite">
+                <!-- As tarefas serão inseridas aqui via JavaScript -->
+            </div>
+
+            <!-- Estado Vazio -->
+            <div id="empty-state" class="empty-state hidden">
+                <div class="empty-content">
+                    <i class="fas fa-clipboard-check empty-icon" aria-hidden="true"></i>
+                    <h3 class="empty-title">Nenhuma tarefa encontrada</h3>
+                    <p class="empty-text">Adicione uma nova tarefa para começar a organizar seu dia!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden" aria-hidden="true">
+        <div class="loading-spinner"></div>
+        <span class="loading-text">Carregando...</span>
     </div>
 
-
+    <!-- JavaScript -->
+    <script src="./js/app.js" defer></script>
 </body>
-
 </html>
